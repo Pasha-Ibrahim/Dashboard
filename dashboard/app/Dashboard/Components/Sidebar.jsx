@@ -140,7 +140,7 @@ export default function Sidebar({ isOpen, setIsOpen }) {
         absolute bottom-0 left-0 right-0 w-full p-5 pb-2"
         >
           <li
-            className="py-4 px-4 rounded-xl active text-neutral-500
+            className="w-full py-4 px-4 rounded-xl text-neutral-500
             font-sora transition-colors duration-300"
           >
             <Link href="/logout" className="text-md">
