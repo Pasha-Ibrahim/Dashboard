@@ -3,7 +3,6 @@ import { useState } from "react";
 import Sidebar from "./Components/Sidebar";
 import Navbar from "./Components/Navbar";
 import Main from "./Components/Main";
-import { isAssetError } from "next/dist/client/route-loader";
 
 export default function DashboardPage() {
   const [isOpen, setIsOpen] = useState(false);
