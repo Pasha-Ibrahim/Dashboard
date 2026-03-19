@@ -201,50 +201,61 @@ export default function Main() {
       {/* Bottom Sections */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Instructor Table */}
-        <div className="bg-white shadow-md rounded-lg p-5 overflow-x-auto">
-          <h3 className="text-lg font-semibold mb-4 flex justify-between items-center">
-            Popular Instructors
-            <span className="text-blue-500 text-sm cursor-pointer relative group">
-              View All
-              <span className="absolute left-0 -bottom-0.5 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
-            </span>
-          </h3>
-          <div className="grid grid-cols-[3fr_1fr_1fr_2fr] text-gray-500 text-sm font-medium pb-3 gap-4">
-            <div>Instructor</div>
-            <div className="text-center lg:text-center">Courses</div>
-            <div className="text-center lg:text-center">Students</div>
-            <div className="text-center lg:text-center">Reviews</div>
-          </div>
-          {instructors.map((inst, idx) => (
-            <div
-              key={idx}
-              className="grid grid-cols-[3fr_1fr_1fr_2fr] items-center py-3 gap-4 hover:bg-gray-50 rounded transition-colors duration-300"
-            >
-              <div className="flex items-center gap-3">
-                <Image
-                  src={inst.img}
-                  alt={inst.name}
-                  width={35}
-                  height={35}
-                  className="rounded-full"
-                />
-                <span className="font-medium">{inst.name}</span>
-              </div>
-              <div className="text-center lg:flex lg:justify-center">
-                {inst.courses}
-              </div>
-              <div className="text-center lg:flex lg:justify-center">
-                {inst.students}
-              </div>
-              <div className="flex items-center gap-1 justify-center lg:justify-center">
-                <FontAwesomeIcon icon={faStar} className="text-yellow-400" />
-                <span className="text-center">
-                  {inst.rating} ({inst.reviews})
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
+       <div className="bg-white shadow-md rounded-lg p-5 overflow-x-auto">
+  <h3 className="text-lg font-semibold mb-4 flex justify-between items-center">
+    Popular Instructors
+    <span className="text-blue-500 text-sm cursor-pointer relative group">
+      View All
+      <span className="absolute left-0 -bottom-0.5 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
+    </span>
+  </h3>
+
+  {/* Table Header */}
+  <div className="grid grid-cols-[4fr_1fr_1fr_1fr] text-gray-500 text-sm font-medium pb-3 gap-4">
+    <div className="text-center lg:text-center">Instructor</div>
+    <div className="text-center lg:text-center">Courses</div>
+    <div className="text-center lg:text-center">Students</div>
+    <div className="text-center lg:text-center">Reviews</div>
+  </div>
+
+  {/* Table Rows */}
+  {instructors.map((inst, idx) => (
+    <div
+      key={idx}
+      className="grid grid-cols-[4fr_1fr_1fr_1fr] items-center py-3 gap-4 hover:bg-gray-50 rounded transition-colors duration-300"
+    >
+      {/* Instructor: image + name */}
+      <div className="flex flex-col-reverse items-start gap-2 sm:flex-row sm:items-center">
+        <Image
+          src={inst.img}
+          alt={inst.name}
+          width={35}
+          height={35}
+          className="rounded-full"
+        />
+        <span className="font-medium">{inst.name}</span>
+      </div>
+
+      {/* Courses */}
+      <div className="text-center lg:flex lg:justify-center">
+        {inst.courses}
+      </div>
+
+      {/* Students */}
+      <div className="text-center lg:flex lg:justify-center">
+        {inst.students}
+      </div>
+
+      {/* Reviews */}
+      <div className="flex items-center gap-1 justify-center lg:justify-center">
+        <FontAwesomeIcon icon={faStar} className="text-yellow-400" />
+        <span className="text-center">
+          {inst.rating} ({inst.reviews})
+        </span>
+      </div>
+    </div>
+  ))}
+</div>
 
         {/* Courses Table */}
         <div className="bg-white shadow-md rounded-lg p-5 overflow-x-auto">
